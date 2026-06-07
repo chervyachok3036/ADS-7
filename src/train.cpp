@@ -23,7 +23,9 @@ void Train::addCar(bool light) {
 }
 
 int Train::getLength() {
-  if (!first) return 0;
+  if (!first) {
+    return 0;
+  }
   countOp = 0;
   Car* cur = first;
   while (cur->light) {
@@ -33,15 +35,17 @@ int Train::getLength() {
     cur = cur->next;
     countOp++;
   }
+
   int len = 0;
-  do {
+  cur = first;
+  while (!cur->light) {
     countOp++;
     cur->light = true;
     countOp++;
     cur = cur->next;
     countOp++;
     len++;
-  } while (cur != first);
+  }
   return len;
 }
 
