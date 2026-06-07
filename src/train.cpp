@@ -28,19 +28,17 @@ int Train::getLength() {
   }
   countOp = 0;
   int len = 1;
-  Car* cur = first;
+  const Car* cur = first;
   countOp++;
   while (cur->next != first) {
     countOp++;
     cur = cur->next;
-    countOp++;
     countOp++;
     ++len;
   }
   countOp++;
   return len;
 }
-
 
 int Train::getOpCount() {
   return countOp;
